@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "github.com/zRich/zFusion/account";
+
+package account;
+
+import "protos/identity/identity.proto";
+
+
+message PersonalAccount {
+    identity.Identity owner = 1;
+}
+
+message BusinessAccount {
+    repeated identity.Identity admins = 1;
+}

@@ -1,0 +1,42 @@
+# Copyright the Hyperledger Fabric contributors. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+lint:
+  file_header:
+    is_commented: true
+    content: |
+      // Copyright the zFusion contributors. All rights reserved.
+      //
+      // SPDX-License-Identifier: Apache-2.0
+  group: google
+  rules:
+    add:
+      - PACKAGES_SAME_IN_DIR
+      - FILE_NAMES_LOWER_SNAKE_CASE
+      - FILE_OPTIONS_GO_PACKAGE_NOT_LONG_FORM
+      - FILE_OPTIONS_GO_PACKAGE_SAME_IN_DIR
+      - FILE_OPTIONS_JAVA_MULTIPLE_FILES_SAME_IN_DIR
+      - FILE_OPTIONS_REQUIRE_GO_PACKAGE
+      - GOGO_NOT_IMPORTED
+      - IMPORTS_NOT_WEAK
+      - MESSAGE_FIELDS_NOT_FLOATS
+      - PACKAGE_IS_DECLARED
+      - PACKAGE_LOWER_SNAKE_CASE
+      - PACKAGE_NO_KEYWORDS
+      - PACKAGES_SAME_IN_DIR
+      - SYNTAX_PROTO3
+      - MESSAGE_FIELDS_NOT_FLOATS
+      - WKT_DIRECTLY_IMPORTED
+      - WKT_DURATION_SUFFIX
+    remove:
+
+  ignores:
+    - id: PACKAGES_SAME_IN_DIR
+      files:
+        - msp
+    - id: MESSAGE_FIELD_NAMES_LOWER_SNAKE_CASE
+      files:
+      - account/account.proto
+      - common/common.proto
+      - identity/identity.proto
+      - peer/peer.proto

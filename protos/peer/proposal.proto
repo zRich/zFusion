@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option go_package = "github.com/zRich/zFusion/peer";
+
+package peer;
+
+/* import "google/protobuf/timestamp.proto"; */
+message SignedProposal {
+
+    // The bytes of Proposal
+    bytes proposal_bytes = 1;
+
+  // Signaure over proposalBytes; this signature is to be verified against
+  // the creator identity contained in the header of the Proposal message
+  // marshaled as proposalBytes
+    bytes signature = 2;
+}
+
+// A Proposal is sent to an endorser for endorsement.  The proposal contains:
+// 1. A header which should be unmarshaled to a Header message.  Note that
+//    Header is both the header of a Proposal and of a Transaction, in that i)
+//    both headers should be unmarshaled to this message; and ii) it is used to
+//    compute cryptographic hashes and signatures.  The header has fields common
+//    to all proposals/transactions.  In addition it has a type field for
+//    additional customization. An example of this is the ChaincodeHeaderExtension
+//    message used to extend the Header for type CHAINCODE.
+// 2. A payload whose type depends on the header's type field.
+// 3. An extension whose type depends on the header's type field.
+//
+// Let us see an example. For type CHAINCODE (see the Header message),
+// we have the following:
+// 1. The header is a Header message whose extensions field is a
+//    ChaincodeHeaderExtension message.
+// 2. The payload is a ChaincodeProposalPayload message.
+// 3. The extension is a ChaincodeAction that might be used to ask the
+//    endorsers to endorse a specific ChaincodeAction, thus emulating the
+//    submitting peer model.
+message Proposal {
+
+    // The header of the proposal. It is the bytes of the Header
+    bytes header = 1;
+
+    // The payload of the proposal as defined by the type in the proposal
+    // header.
+    bytes payload = 2;
+
+    // Optional extensions to the proposal. Its content depends on the Header's
+    // type field.  For the type CHAINCODE, it might be the bytes of a
+    // ChaincodeAction message.
+    bytes extension = 3;
+}
