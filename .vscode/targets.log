@@ -5,8 +5,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Mon Jul 25 16:57:56 2022
+# Make data base, printed on Sat Jul 30 20:48:46 2022
 
 # Variables
 
@@ -33,7 +34,6 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
- 
 _ = /mnt/c/Users/Rich Zhao/AppData/Local/Programs/Microsoft VS Code/bin/code
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
@@ -58,7 +58,7 @@ NVM_BIN = /home/rich/.nvm/versions/node/v16.14.2/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-81e7dd6f-f7a4-4095-8194-88e55333b0c3.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-0bce2519-d06a-4a7d-be4e-8ef9e90d2d59.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -68,17 +68,19 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 DISPLAY = :0
 # environment
+WSL2_GUI_APPS_ENABLED = 1
+# environment
 PWD = /home/rich/repos/zFusion
 # default
 .LOADED := 
 # environment
 LSP_SERVER = /home/rich/.local/share/nvim/lsp_servers
 # environment
-WSL_INTEROP = /run/WSL/1033_interop
+WSL_INTEROP = /run/WSL/8_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = 45de672d-1cb2-4cc4-904e-55c05bb1ae8c
+WT_SESSION = 150e043b-a8b7-4d03-b90f-0e0c844b4f57
 # environment
 GOMODCACHE = /home/rich/go/pkg/mod
 # environment
@@ -168,7 +170,7 @@ TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=78/1024=8%, Rehash=0, Collisions=5/106=5%
+# Load=79/1024=8%, Rehash=0, Collisions=5/107=5%
 
 # Pattern-specific Variable Values
 
@@ -238,7 +240,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-10 08:31:33.272594358
+#  Last modified 2022-07-26 14:46:45.778036602
 #  File has been updated.
 #  Successfully updated.
 
@@ -256,12 +258,12 @@ Makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 22 / storage = 180 B / avg = 8 B
-# current buf: size = 8162 B / used = 180 B / count = 22 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 177 B / avg = 8 B
+# current buf: size = 8162 B / used = 177 B / count = 22 / avg = 8 B
 
 # strcache performance: lookups = 31 / hit rate = 29%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Mon Jul 25 16:57:56 2022
+# Finished Make data base on Sat Jul 30 20:48:46 2022
 
  
