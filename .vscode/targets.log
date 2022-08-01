@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Sat Jul 30 20:48:46 2022
+# Make data base, printed on Mon Aug  1 14:20:36 2022
 
 # Variables
 
@@ -58,7 +57,7 @@ NVM_BIN = /home/rich/.nvm/versions/node/v16.14.2/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-0bce2519-d06a-4a7d-be4e-8ef9e90d2d59.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-88358846-c73c-4baf-8a97-f2ec00ae693e.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -80,7 +79,7 @@ WSL_INTEROP = /run/WSL/8_interop
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WT_SESSION = 150e043b-a8b7-4d03-b90f-0e0c844b4f57
+WT_SESSION = 60fba329-c05d-4786-866c-f2b7464ae2de
 # environment
 GOMODCACHE = /home/rich/go/pkg/mod
 # environment
@@ -264,6 +263,6 @@ Makefile:
 # strcache performance: lookups = 31 / hit rate = 29%
 # hash-table stats:
 # Load=22/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Sat Jul 30 20:48:46 2022
+# Finished Make data base on Mon Aug  1 14:20:36 2022
 
  

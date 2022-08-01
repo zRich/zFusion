@@ -4,9 +4,9 @@ option go_package = "github.com/zRich/zFusion/peer";
 
 package peer;
 
-import "protos/peer/proposal.proto";
-import "protos/peer/proposal_response.proto";
+import "protos/peer/request.proto";
+import "protos/peer/response.proto";
 
-service Endorser {
-    rpc ProcessProposal(SignedProposal) returns (ProposalResponse);
+service Process {
+    rpc ProcessRequest(SignedRequest) returns (SignedResponse);
 }

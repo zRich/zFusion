@@ -18,86 +18,86 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// EndorserClient is the client API for Endorser service.
+// ProcessClient is the client API for Process service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type EndorserClient interface {
-	ProcessProposal(ctx context.Context, in *SignedProposal, opts ...grpc.CallOption) (*ProposalResponse, error)
+type ProcessClient interface {
+	ProcessRequest(ctx context.Context, in *SignedRequest, opts ...grpc.CallOption) (*SignedResponse, error)
 }
 
-type endorserClient struct {
+type processClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewEndorserClient(cc grpc.ClientConnInterface) EndorserClient {
-	return &endorserClient{cc}
+func NewProcessClient(cc grpc.ClientConnInterface) ProcessClient {
+	return &processClient{cc}
 }
 
-func (c *endorserClient) ProcessProposal(ctx context.Context, in *SignedProposal, opts ...grpc.CallOption) (*ProposalResponse, error) {
-	out := new(ProposalResponse)
-	err := c.cc.Invoke(ctx, "/peer.Endorser/ProcessProposal", in, out, opts...)
+func (c *processClient) ProcessRequest(ctx context.Context, in *SignedRequest, opts ...grpc.CallOption) (*SignedResponse, error) {
+	out := new(SignedResponse)
+	err := c.cc.Invoke(ctx, "/peer.Process/ProcessRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// EndorserServer is the server API for Endorser service.
-// All implementations must embed UnimplementedEndorserServer
+// ProcessServer is the server API for Process service.
+// All implementations must embed UnimplementedProcessServer
 // for forward compatibility
-type EndorserServer interface {
-	ProcessProposal(context.Context, *SignedProposal) (*ProposalResponse, error)
-	mustEmbedUnimplementedEndorserServer()
+type ProcessServer interface {
+	ProcessRequest(context.Context, *SignedRequest) (*SignedResponse, error)
+	mustEmbedUnimplementedProcessServer()
 }
 
-// UnimplementedEndorserServer must be embedded to have forward compatible implementations.
-type UnimplementedEndorserServer struct {
+// UnimplementedProcessServer must be embedded to have forward compatible implementations.
+type UnimplementedProcessServer struct {
 }
 
-func (UnimplementedEndorserServer) ProcessProposal(context.Context, *SignedProposal) (*ProposalResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProcessProposal not implemented")
+func (UnimplementedProcessServer) ProcessRequest(context.Context, *SignedRequest) (*SignedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProcessRequest not implemented")
 }
-func (UnimplementedEndorserServer) mustEmbedUnimplementedEndorserServer() {}
+func (UnimplementedProcessServer) mustEmbedUnimplementedProcessServer() {}
 
-// UnsafeEndorserServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to EndorserServer will
+// UnsafeProcessServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProcessServer will
 // result in compilation errors.
-type UnsafeEndorserServer interface {
-	mustEmbedUnimplementedEndorserServer()
+type UnsafeProcessServer interface {
+	mustEmbedUnimplementedProcessServer()
 }
 
-func RegisterEndorserServer(s grpc.ServiceRegistrar, srv EndorserServer) {
-	s.RegisterService(&Endorser_ServiceDesc, srv)
+func RegisterProcessServer(s grpc.ServiceRegistrar, srv ProcessServer) {
+	s.RegisterService(&Process_ServiceDesc, srv)
 }
 
-func _Endorser_ProcessProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignedProposal)
+func _Process_ProcessRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(EndorserServer).ProcessProposal(ctx, in)
+		return srv.(ProcessServer).ProcessRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/peer.Endorser/ProcessProposal",
+		FullMethod: "/peer.Process/ProcessRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(EndorserServer).ProcessProposal(ctx, req.(*SignedProposal))
+		return srv.(ProcessServer).ProcessRequest(ctx, req.(*SignedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Endorser_ServiceDesc is the grpc.ServiceDesc for Endorser service.
+// Process_ServiceDesc is the grpc.ServiceDesc for Process service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Endorser_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "peer.Endorser",
-	HandlerType: (*EndorserServer)(nil),
+var Process_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "peer.Process",
+	HandlerType: (*ProcessServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ProcessProposal",
-			Handler:    _Endorser_ProcessProposal_Handler,
+			MethodName: "ProcessRequest",
+			Handler:    _Process_ProcessRequest_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
