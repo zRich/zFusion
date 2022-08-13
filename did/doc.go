@@ -22,7 +22,6 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 	"github.com/zRich/zFusion/common/flogging"
 	"github.com/zRich/zFusion/common/model"
-	// "github.com/zRich/zFusion/did/jwk"
 )
 
 const (
