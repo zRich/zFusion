@@ -1,3 +1,4 @@
+//go:build !ACAPyInterop
 // +build !ACAPyInterop
 
 /*
@@ -10,6 +11,6 @@ package did
 const doACAPYInterop = false
 
 // SerializeInterop serializes the DID doc, using normal serialization unless the `interop` build flag is set.
-func (doc *Doc) SerializeInterop() ([]byte, error) {
+func (doc *Document) SerializeInterop() ([]byte, error) {
 	return doc.JSONBytes()
 }

@@ -1,0 +1,6 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "go.testFlags": [
+    "-v"
+    ],
+}
