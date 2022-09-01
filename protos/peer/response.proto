@@ -42,5 +42,9 @@ message Response {
 
     // The payload of the Request as defined by the type in the Request
     // header.
-    bytes payload = 2;
+    bytes payload = 2; 
+    payload {
+      did: someid,
+      data: bytes
+    }
 }

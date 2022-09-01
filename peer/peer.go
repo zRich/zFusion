@@ -24,7 +24,7 @@ type GRPCServer struct {
 	healthServer      *health.Server
 }
 
-var logger = flogging.MustGetLogger("PeerServer")
+var logger = flogging.GetLogger("PeerServer")
 
 type PeerServer struct {
 	UnimplementedEndorserServer
