@@ -132,7 +132,7 @@ func ContextContainsString(context Context, contextString string) bool {
 }
 
 // LookupService returns the service from the given DIDDoc matching the given service type.
-func LookupService(didDoc *Doc, serviceType string) (*Service, bool) {
+func LookupService(didDoc *Document, serviceType string) (*Service, bool) {
 	const notFound = -1
 	index := notFound
 
@@ -156,7 +156,7 @@ func LookupService(didDoc *Doc, serviceType string) (*Service, bool) {
 // See:
 // - https://github.com/hyperledger/aries-rfcs/blob/master/features/0067-didcomm-diddoc-conventions/README.md
 // - https://github.com/hyperledger/aries-rfcs/blob/master/features/0360-use-did-key/README.md
-func LookupDIDCommRecipientKeys(didDoc *Doc) ([]string, bool) {
+func LookupDIDCommRecipientKeys(didDoc *Document) ([]string, bool) {
 	didCommService, ok := LookupService(didDoc, "did-communication")
 	if !ok {
 		return nil, false
@@ -170,7 +170,7 @@ func LookupDIDCommRecipientKeys(didDoc *Doc) ([]string, bool) {
 }
 
 // LookupPublicKey returns the public key with the given id from the given DID Doc.
-func LookupPublicKey(id string, didDoc *Doc) (*VerificationMethod, bool) {
+func LookupPublicKey(id string, didDoc *Document) (*VerificationMethod, bool) {
 	for _, key := range didDoc.VerificationMethod {
 		if key.ID == id {
 			return &key, true
