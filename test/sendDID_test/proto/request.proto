@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "zFusion/peer";
+option go_package = "pb/proto_demo";
 
-package peer;
+package proto;
 
 /* import "google/protobuf/timestamp.proto"; */
 message SignedRequest {

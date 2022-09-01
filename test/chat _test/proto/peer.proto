@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "github.com/zRich/zFusion/peer";
+option go_package = "pb/proto_demo";
 
-package peer;
+package proto;
 
 import "request.proto";
 import "response.proto";
